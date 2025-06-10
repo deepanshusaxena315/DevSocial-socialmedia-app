@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { supabase } from '../supabase-client';
 import type { Post } from './PostList';
 import { useQuery } from '@tanstack/react-query';
