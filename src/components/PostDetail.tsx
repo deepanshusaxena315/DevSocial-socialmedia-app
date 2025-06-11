@@ -36,10 +36,10 @@ const PostDetail = ({postId}: Props) => {
         <img
           src={data.image_url}
           alt={data?.title}
-          className="mt-4 rounded object-cover w-full h-64"
+          className="mt-4 rounded object-cover w-3xl mx-auto  h-80"
         />
       )}
-      <p className="text-gray-400">{data?.content}</p>
+      <p className="text-gray-400 text-xl">{data?.content}</p>
       <p className="text-gray-500 text-sm">
         Posted on: {new Date(data!.created_at).toLocaleDateString()}
       </p>

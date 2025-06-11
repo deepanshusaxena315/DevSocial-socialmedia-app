@@ -1,54 +1,109 @@
-# React + TypeScript + Vite
+# 🌐 DevSocial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A social media platform made **by developers, for developers**. Think Reddit meets GitHub — post, comment, share bugs and wins across tech communities.
 
-Currently, two official plugins are available:
+🔗 [Live Demo → devsocial-dtu.vercel.app](https://devsocial-dtu.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+## 📸 Screenshots
 
-## Expanding the ESLint configuration
+> Here's a preview of the DevSocial UI in action:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Home Feed | Post View | Auth |
+|-----------|-----------|------|
+| ![Home Feed](./screenshots/home-feed.png) | ![Post View](./screenshots/post-view.png) | ![Community view](./screenshots/community-view.png) |
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- ⚛️ **React** – UI building with component-based design
+- ⚡ **Vite** – Lightning-fast dev and build tooling
+- 🧠 **TypeScript** – Type-safe, scalable frontend logic
+- 🐘 **Supabase** – Auth, real-time DB, and storage backend
+- 🎨 **Tailwind CSS** – Utility-first styling for a beautiful, responsive UI
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## ⚡️ Features
+
+### 🔐 User Authentication via GitHub
+- Log in securely using GitHub OAuth
+- Display GitHub avatars and usernames on posts, comments, and more
+
+### 📝 Post Creation with Image Uploads
+- Create posts with a title, content, and optional image
+- Uploads are stored in Supabase with secure public URLs
+
+### 👍 Dynamic Voting System
+- Upvote or downvote posts
+- Active votes glow subtly to reflect interaction
+
+### 💬 Robust Commenting System
+- Threaded comment replies with nested structure
+- Includes timestamps and user avatars for context
+
+### 🏘️ Community & Category Support
+- Organize content into tech-specific communities:
+  - 💻 First Commit
+  - 🎮 Game Dev Garage
+  - 🎨 Pixel Pushers
+  - 🌍 Devverse
+- Users can post within a category and browse accordingly
+
+### 💎 Modern Glassmorphism UI
+- Clean, aesthetic interface with glowing gradients and glassy cards
+- Subtle transitions and hover effects across the site
+
+### 🔄 Real-Time Data Updates
+- Powered by **Supabase** + **React Query**
+- Posts, votes, and comments reflect instantly without reloads
+
+---
+
+
+
+---
+
+## 🛠️ Local Setup
+
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/deepanshusaxena315/DevSocial-socialmedia-app.git
+   cd DevSocial-socialmedia-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Add environment variables to `.env.local`:
+   ```env
+   VITE_SUPABASE_URL=<your-supabase-url>
+   VITE_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+   ```
+
+4. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## ✨ Future Ideas
+
+- Add profile pages
+- Show trending posts by upvotes
+- Mobile-first redesign
+- Light/dark theme toggle
+- Infinite scroll
+
+---
+
+## 📄 License
+
+MIT © [Deepanshu Saxena](https://github.com/deepanshusaxena315)
+
+---
+
+Built with love at **DTU 💙**
