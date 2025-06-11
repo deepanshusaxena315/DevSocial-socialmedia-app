@@ -13,7 +13,7 @@ interface PostInput {
 }
 
 const createPost = async (post:PostInput, imageFile:File )=> {
-    const filepath = `${post.title}-${Date.now()}-${imageFile.name}`;
+    const filepath = sanitizeFileName(post.title, imageFile.name);
     const {error: uploadError} = await supabase.storage.from("post-image").upload(filepath,imageFile)
     if(uploadError) throw new Error(uploadError.message);
 
@@ -23,6 +23,13 @@ const createPost = async (post:PostInput, imageFile:File )=> {
 
     if(error) throw new Error(error.message);
     return data;
+}
+
+    function sanitizeFileName(title:string, originalFileName:string) {
+  const cleanTitle = title.replace(/[^a-zA-Z0-9-_]/g, "-");
+  const timestamp = Date.now();
+  const extension = originalFileName.split(".").pop();
+  return `${cleanTitle}-${timestamp}.${extension}`;
 }
 
 const CreatePost = () => {
@@ -73,6 +80,8 @@ const CreatePost = () => {
         setSelectedFile(e.target.files[0]);
       }
     }
+
+
 
     return (
     <form onSubmit={handleSubmit} className='max-w-2xl mx-auto space-y-4 bg-gray-900 p-7 rounded-4xl'>
@@ -127,12 +136,19 @@ const CreatePost = () => {
                 onChange={handleFileChange}
             />
         </div>
+                {selectedFile && (
+        <img
+            src={URL.createObjectURL(selectedFile)}
+            alt="Preview"
+            className="mt-2 rounded-xl max-h-48 object-cover"
+        />
+        )}
         <button type='submit'
         className='bg-purple-500 text-white px-4 py-2 rounded cursor-pointer'>
             {isPending? "Creating...": "Create Post"}
         </button>
 
-        {isError && <p className='text-red-500'>Error Creating Post. </p>}
+        {isError && <p className='text-red-500'>You need to be logged in to create a post. </p>}
     </form>
   )
 }
