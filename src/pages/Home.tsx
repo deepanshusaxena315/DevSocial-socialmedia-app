@@ -12,7 +12,7 @@ const Home = () => {
 </div>
       <h2 className='text-6xl font-bold mb-6 text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>
         Recent Posts</h2>
-      <div className='sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[60vw] mx-auto'>
+      <div className='sm:max-w-[90vw] md:max-w-[90vw] lg:max-w-[75vw] mx-auto'>
         <PostList/>
       </div>
     </div>
